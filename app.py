@@ -65,12 +65,13 @@ def query():
             body=email_content["body"]
         )
 
-        # return jsonify({
-        #     "sql": sql,
-        #     "rows_affected": result,
-        #     "email_subject": email_content["subject"],
-        #     "email_body": email_content["body"]
-        # })
+       return jsonify({
+            "sql": sql,
+            "rows_affected": result,
+            "email_subject": email_content["subject"],
+            "email_body": email_content["body"],
+            "summary": f"Rows Entered Successfully {result}"
+        })
 
     # READ (SELECT)
     summary = summarizer.summarize(question, result)
@@ -83,9 +84,6 @@ def query():
 
     return jsonify({
         "sql": sql,
-        "rows_affected": result,
-        "email_subject": email_content["subject"],
-        "email_body": email_content["body"],
         "data": data,
         "summary": summary,
         "viz": viz,
