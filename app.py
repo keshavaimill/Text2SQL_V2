@@ -52,6 +52,8 @@ def query():
     sql = t2s.run(question)
     result = execute_sql(db_path, sql)
 
+    email_content = None
+    
     # WRITE (INSERT / UPDATE)
     if isinstance(result, int):
         email_content = generate_llm_summary(sql, result)
