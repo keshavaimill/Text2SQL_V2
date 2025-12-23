@@ -65,7 +65,7 @@ def query():
             body=email_content["body"]
         )
 
-       return jsonify({
+    return jsonify({
             "sql": sql,
             "rows_affected": result,
             "email_subject": email_content["subject"],
